@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% set page_title = 'DFA Tool - Automata Toolkit' %}
+
+{% block content %}
+<header class="page-header">
+    <h1>DFA Tool</h1>
+    <p>Format: <code>state:symbol->state</code></p>
+</header>
+
+<section class="page-grid mt-3">
+    <form id="simulate-form" class="panel" autocomplete="off">
+        <label for="sim-transitions">Transitions</label>
+        <textarea id="sim-transitions" rows="8" placeholder="s0:a->s1&#10;s0:b->s0&#10;s1:a->s1&#10;s1:b->s2&#10;s2:a->s1&#10;s2:b->s0"></textarea>
+
+        <label for="sim-start">Start State</label>
+        <input id="sim-start" placeholder="s0">
+
+        <label for="sim-final">Final States</label>
+        <input id="sim-final" placeholder="s2">
+
+        <div class="actions-row">
+            <button id="sim-example-btn" class="btn btn-primary" type="button">Load Example</button>
+            <button id="simulate-btn" class="btn btn-primary" type="submit">Build DFA</button>
+        </div>
+    </form>
+
+    <section class="panel">
+        <h2>Result</h2>
+        <div id="simulate-status" class="status">Ready</div>
+        <div class="actions-row">
+            <button id="sim-clear-btn" class="btn btn-primary" type="button">Clear Output</button>
+        </div>
+        <div id="simulate-result" class="result"></div>
+    </section>
+</section>
+{% endblock %}
+
+{% block page_scripts %}
+<script src="https://unpkg.com/viz.js@2.1.2/viz.js"></script>
+<script src="https://unpkg.com/viz.js@2.1.2/full.render.js"></script>
+{% endblock %}

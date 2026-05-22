@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% set page_title = 'Automata Toolkit' %}
+
+{% block content %}
+<header class="page-header home-hero">
+    <p class="hero-kicker">Automata and Compiler Design Lab</p>
+    <h1>Automata Toolkit</h1>
+    <p>Start from Regex, NFA, or DFA. </p>
+</header>
+
+<section class="home-grid mt-4">
+    <article class="panel source-card">
+        <h2>Regex</h2>
+        <p>Convert regex directly to NFA or DFA.</p>
+        <a class="choice-link w-100" href="{{ url_for('regex_tool') }}?target=nfa">Open Regex Tool</a>
+    </article>
+
+    <article class="panel source-card">
+        <h2>NFA</h2>
+        <p>Convert NFA to DFA and draw both NFA and converted DFA graphs.</p>
+        <a class="choice-link w-100" href="{{ url_for('convert_tool') }}">Open NFA Tool</a>
+    </article>
+
+    <article class="panel source-card">
+        <h2>DFA</h2>
+        <p>Build DFA details and render graph in one place.</p>
+        <a class="choice-link w-100" href="{{ url_for('simulate_tool') }}">Open DFA Tool</a>
+    </article>
+</section>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% set page_title = 'NFA Tool - Automata Toolkit' %}
+
+{% block content %}
+<header class="page-header">
+    <h1>NFA Tool</h1>
+    <p>Format: <code>state:symbol->state</code></p>
+</header>
+
+<section class="page-grid mt-3">
+    <form id="convert-form" class="panel" autocomplete="off">
+        <label for="conv-transitions">Transitions</label>
+        <textarea id="conv-transitions" rows="7" placeholder="n0:ε->n1&#10;n0:ε->n3&#10;n1:a->n2&#10;n2:b->n2&#10;n2:ε->n4&#10;n3:b->n4&#10;n4:a->n4"></textarea>
+
+        <label for="conv-start">Start State</label>
+        <input id="conv-start" placeholder="n0">
+
+        <label for="conv-final">Final States</label>
+        <input id="conv-final" placeholder="n4">
+
+        <div class="actions-row">
+            <button id="conv-example-btn" class="btn btn-primary" type="button">Load Example</button>
+            <button id="convert-btn" class="btn btn-primary" type="submit">Convert to DFA</button>
+            <button id="conv-graph-nfa-btn" class="btn btn-primary" type="button">Graph NFA</button>
+            <button id="conv-graph-dfa-btn" class="btn btn-primary is-hidden" type="button">Graph Converted DFA</button>
+        </div>
+    </form>
+
+    <section class="panel">
+        <h2>Result</h2>
+        <div id="convert-status" class="status">Ready</div>
+        <div class="actions-row">
+            <button id="conv-clear-btn" class="btn btn-primary" type="button">Clear Output</button>
+        </div>
+        <div id="convert-result" class="result"></div>
+    </section>
+</section>
+{% endblock %}
+
+{% block page_scripts %}
+<script src="https://unpkg.com/viz.js@2.1.2/viz.js"></script>
+<script src="https://unpkg.com/viz.js@2.1.2/full.render.js"></script>
+{% endblock %}
