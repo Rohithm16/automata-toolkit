@@ -1,0 +1,1 @@
+"""Automata Toolkit package."""
